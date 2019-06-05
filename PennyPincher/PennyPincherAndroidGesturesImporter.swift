@@ -149,7 +149,7 @@ private final class BigEndianDataReader {
         let maxLength = (data.count - index - 1)
         let stringData = data.subdata(in: index..<index + maxLength)
         let string = String(cString: [UInt8](stringData))
-        index += (string.characters.count) //(why not: +1 for null-terminator?)
+        index += (string.utf8.count) //(why not: +1 for null-terminator?)
         
         return string
     }
